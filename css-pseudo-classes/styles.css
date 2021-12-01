@@ -1,0 +1,16 @@
+button {
+  padding: 12px;
+}
+
+button:hover {
+  background-color: gold;
+}
+
+th {
+  background: black;
+  color: white;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: gray;
+}
