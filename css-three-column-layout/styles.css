@@ -11,13 +11,14 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  color: white;
-  padding: 20px 40px;
+
+  /* padding: 20px 40px; */
 }
 
 .column-third {
   width: calc(100% / 3);
-  padding: 25px;
+
+  /* padding: 25px; */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -26,6 +27,7 @@
 
 div {
   justify-content: center;
+  color: white;
 }
 
 .image {
