@@ -1,0 +1,14 @@
+.row {
+  display: flex;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #1996da;
+  color: white;
+}
+
+.column-third {
+  width: 100% / 3;
+}
