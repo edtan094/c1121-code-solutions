@@ -13,17 +13,17 @@
 }
 
 .column-two-thirds {
-  width: 200% / 3;
+  width: calc(200% / 3);
 }
 
 .column-one-third {
-  width: 100% / 3;
-}
-
-.characters {
-  width: 100%;
+  width: calc(100% / 3);
 }
 
 .column-full {
+  width: 100%;
+}
+
+.characters {
   width: 100%;
 }
