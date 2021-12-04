@@ -6,7 +6,7 @@ body {
   display: flex;
 }
 
-.row-one {
+.center-column {
   justify-content: center;
   flex-direction: column;
   align-items: center;
@@ -31,7 +31,7 @@ h1 {
   letter-spacing: 3px;
 }
 
-.row-one-text {
+.heading-text {
   padding: 0 200px;
   margin: 0 230px;
   text-align: center;
@@ -50,7 +50,7 @@ h3 {
   font-weight: 600;
 }
 
-.row-in-column {
+.img-and-text {
   display: flex;
 }
 
@@ -79,11 +79,11 @@ h3 {
   padding-top: 100px;
 }
 
-.row-two {
+.padding-from-heading {
   padding-top: 60px;
 }
 
-.row-three {
+.center-button {
   display: flex;
   justify-content: center;
   padding-top: 60px;
