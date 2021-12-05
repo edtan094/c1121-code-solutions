@@ -1,0 +1,98 @@
+.row {
+  display: flex;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.text-spacing {
+  padding: 20px 25px;
+}
+
+.text-spacing-right {
+  padding-right: 45px;
+}
+
+a {
+  font-family: "Tiempos Headline" Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+p {
+  font-family: "Tiempos Headline0" Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+h2 h3 {
+  font-family: Avenir Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+a.gray {
+  color: #6e6e6e;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+button {
+  background-color: #294464;
+  color: white;
+  padding: 0 12px;
+}
+
+.margin-top {
+  margin-top: 20px;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.hero-image {
+  width: 100%;
+}
+
+.padding-top-and-bottom {
+  padding: 110px 0;
+}
+
+.h2-position-absolute {
+  position: absolute;
+  left: 90px;
+  top: 300px;
+}
+
+.p-position-absolute {
+  position: absolute;
+  left: 90px;
+  top: 350px;
+}
+
+.button-position-absolute {
+  position: absolute;
+  left: 90px;
+  bottom: 400px;
+}
+
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.column-half {
+  width: 50%;
+}
+
+.flex-align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
