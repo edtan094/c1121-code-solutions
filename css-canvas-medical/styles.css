@@ -5,7 +5,7 @@
 .container {
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
+  width: 80%;
 }
 
 .text-spacing {
@@ -63,6 +63,7 @@ button {
 
 .hero-image {
   width: 100%;
+  max-height: 700px;
 }
 
 .hero-image-heading {
@@ -76,19 +77,19 @@ button {
 .h2-position-absolute {
   position: absolute;
   left: 90px;
-  top: 300px;
+  top: 100px;
 }
 
 .h4-position-absolute {
   position: absolute;
   left: 90px;
-  top: 450px;
+  top: 250px;
 }
 
 .button-position-absolute {
   position: absolute;
   left: 90px;
-  bottom: 200px;
+  bottom: 150px;
 }
 
 .flex-start {
