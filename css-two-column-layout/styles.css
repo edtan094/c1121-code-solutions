@@ -13,13 +13,17 @@ body {
 }
 
 .column-one {
-  margin-left: 250px;
-  margin-right: 50px;
+  padding-left: 150px;
+  padding-right: 25px;
 }
 
 .column-two {
-  margin-right: 250px;
-  margin-left: 50px;
+  padding-right: 150px;
+  padding-left: 25px;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 h1 {
@@ -54,23 +58,13 @@ h3 {
   display: flex;
 }
 
-.column-third-left {
+.column-third-width {
   width: calc(100% / 3);
 }
 
-.column-third-right {
-  width: calc(100% / 3);
-}
-
-.column-two-thirds-left {
+.column-two-thirds-width {
   width: calc(200% / 3);
   padding-right: 10px;
-  padding-top: 10px;
-}
-
-.column-two-thirds-right {
-  width: calc(200% / 3);
-  padding-left: 10px;
   padding-top: 10px;
 }
 
@@ -98,9 +92,4 @@ button {
 .button {
   color: #d14c45;
   margin: 8px;
-}
-
-.display-and-center {
-  display: flex;
-  justify-content: center;
 }
