@@ -34,11 +34,16 @@ h2 h3 {
   font-weight: 500;
 }
 
-a.gray {
+.gray {
   color: #6e6e6e;
 }
 
+.white {
+  color: white;
+}
+
 .flex-end {
+  display: flex;
   justify-content: flex-end;
 }
 
@@ -48,7 +53,7 @@ button {
   padding: 0 12px;
 }
 
-.margin-top {
+.margin-top-bottom {
   margin-top: 20px;
 }
 
@@ -60,7 +65,7 @@ button {
   width: 100%;
 }
 
-.padding-top-and-bottom {
+.padding-top-bottom {
   padding: 110px 0;
 }
 
@@ -91,8 +96,26 @@ button {
   width: 50%;
 }
 
-.flex-align-center {
-  display: flex;
+.flex-center-column {
   justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.flex-column {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.border-bottom {
+  border: solid white;
+  border-bottom-color: #e9ebed;
+}
+
+.background-gray {
+  background: #525351;
 }
