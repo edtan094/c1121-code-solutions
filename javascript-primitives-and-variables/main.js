@@ -2,18 +2,18 @@ var fullName = 'Edwin Tan';
 var isCool = true;
 var totalPets = 1;
 
-console.log(fullName);
-console.log(isCool);
-console.log(totalPets);
+console.log('fullName:', fullName);
+console.log('isCool', isCool);
+console.log('totalPets', totalPets);
 
-console.log(typeof fullName);
-console.log(typeof isCool);
-console.log(typeof totalPets);
+console.log('type of fullName:', typeof fullName);
+console.log('type of isCool:', typeof isCool);
+console.log('type of totalPets:', typeof totalPets);
 
 var unknown = null;
-console.log(unknown);
-console.log(typeof unknown);
+console.log('unknown', unknown);
+console.log('type of:', typeof unknown);
 
 var never;
-console.log(never);
-console.log(typeof never);
+console.log('Never', never);
+console.log('Type of never', typeof never);
