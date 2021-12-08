@@ -11,3 +11,16 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.image-sizing {
+  width: 25%;
+}
+
+.font {
+  font-family: 'Barlow', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-weight-heading {
+  font-weight: 900;
+}
