@@ -49,3 +49,19 @@ function doubleAll(numbers) {
   }
   return doubled;
 }
+
+function getKeys(object) {
+  var values = [];
+  for (var prop in object) {
+    values.push(prop);
+  }
+  return values;
+}
+
+function getValues(object) {
+  var values = [];
+  for (var prop in object) {
+    values.push(object[prop]);
+  }
+  return values;
+}
