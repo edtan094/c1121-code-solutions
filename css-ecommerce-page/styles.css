@@ -5,3 +5,24 @@
 .justify-center {
   justify-content: center;
 }
+
+.row {
+  display: flex;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.image {
+  width: 18%;
+}
+
+.justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.gray {
+  color: rgb(189, 189, 189);
+}
