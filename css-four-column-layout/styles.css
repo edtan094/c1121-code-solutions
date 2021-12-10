@@ -2,6 +2,14 @@
   display: flex;
 }
 
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -17,11 +25,11 @@
 }
 
 .image-sizing {
-  width: 25%;
+  width: 100%;
 }
 
 .small-image-sizing {
-  width: 7%;
+  width: 25%;
 }
 
 .font {
