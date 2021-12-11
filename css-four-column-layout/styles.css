@@ -1,0 +1,46 @@
+.row {
+  display: flex;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-space-around {
+  justify-content: space-around;
+}
+
+.container {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-sizing {
+  width: 100%;
+}
+
+.small-image-sizing {
+  width: 25%;
+}
+
+.font {
+  font-family: 'Barlow', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-weight-heading {
+  font-weight: 900;
+}
+
+.font-size-heading {
+  font-size: 25px;
+}
