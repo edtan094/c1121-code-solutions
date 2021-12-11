@@ -52,3 +52,7 @@
 .align-center {
   align-items: center;
 }
+
+.margin-top-bottom-0 {
+  margin: 0;
+}
