@@ -14,14 +14,11 @@
 function capitalize(word) {
   var capitalizedWord = '';
   var newLetter;
-  for (var i = 0; i <= word.length - 1; i++) {
-    if (i === 0) {
-      newLetter = word[i].toUpperCase();
-      capitalizedWord += newLetter;
-    } else {
-      newLetter = word[i].toLowerCase();
-      capitalizedWord += newLetter;
-    }
+  newLetter = word[0].toUpperCase();
+  capitalizedWord += newLetter;
+  for (var i = 1; i <= word.length - 1; i++) {
+    newLetter = word[i].toLowerCase();
+    capitalizedWord += newLetter;
   }
   return capitalizedWord;
 }
