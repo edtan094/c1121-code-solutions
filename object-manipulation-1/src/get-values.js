@@ -22,14 +22,9 @@
 // }
 
 function getValues(object) {
-  var keyArray = [];
   var valueArray = [];
   for (var prop in object) {
-    keyArray.push(prop);
-  }
-  for (var i = 0; i <= keyArray.length - 1; i++) {
-    var keys = keyArray[i];
-    valueArray.push(object[keys]);
+    valueArray.push(object[prop]);
   }
   return valueArray;
 }
