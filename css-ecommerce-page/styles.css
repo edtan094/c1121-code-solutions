@@ -1,0 +1,58 @@
+.font {
+  font-family: 'Barlow', sans-serif;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  display: flex;
+  width: 20%;
+  flex-direction: column;
+}
+
+.container {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.width-80 {
+  width: 80%;
+}
+
+.justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.gray {
+  color: rgb(189, 189, 189);
+}
+
+.peach-background {
+  background-color: #fff2e7;
+}
+
+.white-background {
+  background-color: white;
+}
+
+.margin-right-5px {
+  margin-right: 5px;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.margin-top-bottom-0 {
+  margin: 0;
+}
