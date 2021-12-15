@@ -9,8 +9,16 @@
 
 function ransomCase(string) {
   var newWord = string.toLowerCase();
-  for (var i = 1; i <= newWord.length - 1; i += 2) {
-    newWord[i] = newWord[i].toUpperCase();
+  var everyOtherWord = true;
+  var finalWord = '';
+  for (var i = 0; i <= newWord.length - 1; i++) {
+    if (everyOtherWord === true) {
+      everyOtherWord = false;
+      finalWord += newWord[i];
+    } else if (everyOtherWord === false) {
+      everyOtherWord = true;
+      finalWord += newWord[i].toUpperCase();
+    }
   }
-  return newWord;
+  return finalWord;
 }
