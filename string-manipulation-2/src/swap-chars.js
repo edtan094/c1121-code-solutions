@@ -12,5 +12,11 @@
 // return string
 
 function swapChars(firstIndex, secondIndex, string) {
-
+  var firstCharacter;
+  var secondCharacter;
+  firstCharacter = string[firstIndex];
+  secondCharacter = string[secondIndex];
+  string[firstIndex] = firstCharacter;
+  string[secondIndex] = secondCharacter;
+  return string;
 }
