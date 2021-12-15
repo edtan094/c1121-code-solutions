@@ -1,0 +1,9 @@
+.green-color {
+  color: rgb(24, 205, 27);
+  text-decoration: underline;
+}
+
+.red-color {
+  color: rgb(248, 9, 8);
+  text-decoration: underline rgb(248, 9, 8);
+}
