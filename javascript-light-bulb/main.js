@@ -1,10 +1,13 @@
 var $button = document.querySelector('.on-button');
 var $background = document.querySelector('.background-light');
+var isLightOn = true;
 function lights(event) {
-  if ($button.className === 'on-button') {
+  if (isLightOn === true) {
+    isLightOn = false;
     $button.className = 'off-button';
     $background.className = 'background-dark';
-  } else if ($button.className === 'off-button') {
+  } else if (isLightOn === false) {
+    isLightOn = true;
     $button.className = 'on-button';
     $background.className = 'background-light';
   }
