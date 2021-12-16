@@ -8,7 +8,7 @@
 //  count the number of items in the array and add one to the total number
 // if count is greater than the length of the array, produce the storage empty
 //  take this number and subtract it by count
-// for each item left in the array starting at this number, put it into the new storage
+// for each item left in the array starting at this number, push it into the new storage
 // produce storage
 function takeRight(array, count) {
   var newArray = [];
@@ -16,7 +16,7 @@ function takeRight(array, count) {
     return newArray;
   }
   for (var i = (array.length - count); i < array.length; i++) {
-    newArray[i] = array[i];
+    newArray.push(array[i]);
   }
   return newArray;
 }
