@@ -5,18 +5,22 @@
 //           string
 // return: string with the characters at firstIndex and secondIndex swapped.
 
-// create a storage both for the first and second character
-// find first character on the string using the first integral number
-// find the second character on the string using the second integral number
-// switch their locations on the string around
-// return string
+// create a storage for a list of letters from string
+// split all the letters in a string into the storage
+// switch the spots of the firstIndex and secondIndex letters
+// for each letter in the list of storage, produce a storage containing this word
+// return the last storage
 
 function swapChars(firstIndex, secondIndex, string) {
-  var firstCharacter;
-  var secondCharacter;
-  firstCharacter = string[firstIndex];
-  secondCharacter = string[secondIndex];
-  string[firstIndex] = firstCharacter;
-  string[secondIndex] = secondCharacter;
-  return string;
+  var array = [];
+  array = string.split('');
+  var firstArgument = array[firstIndex];
+  var secondArgument = array[secondIndex];
+  var finalString = '';
+  array[firstIndex] = secondArgument;
+  array[secondIndex] = firstArgument;
+  for (var i = 0; i < array.length; i++) {
+    finalString += array[i];
+  }
+  return finalString;
 }
