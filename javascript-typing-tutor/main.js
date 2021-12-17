@@ -15,9 +15,11 @@ function myFunction(event) {
       $span[spanElements].className = 'green-color';
       $span[spanElements + 1].className = 'underline';
     }
-    if ($span[spanElements - 1].className === 'green-color') {
-      spanElements++;
-    }
+    // if ($span[spanElements].className === 'green-color') {
+    // }
+    // if ($span[spanElements - 1].className === 'green-color') {
+    //   spanElements++;
+    // }
   }
   // if (event[key] === span[0])
   // for (var i = 0; i < $span.length; i++){
