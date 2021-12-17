@@ -1,4 +1,3 @@
-var $heading = document.querySelector('h1');
 var $span = document.querySelectorAll('span');
 // $heading.addEventListener('keydown', myFunction)
 document.addEventListener('keydown', myFunction);
@@ -6,8 +5,19 @@ function myFunction(event) {
   console.log(event);
   console.log(event.target);
   console.log(event.target.tagName);
-  if (event.key === $span[0].textContent) {
-    console.log('Hurray');
+
+  for (var spanElements = 0; spanElements < $span.length; spanElements++) {
+    if (event.key !== $span[spanElements].textContent) {
+      $span[spanElements].className = 'red-color';
+      return;
+    }
+    if (event.key === $span[spanElements].textContent) {
+      $span[spanElements].className = 'green-color';
+      $span[spanElements + 1].className = 'underline';
+    }
+    if ($span[spanElements - 1].className === 'green-color') {
+      spanElements++;
+    }
   }
   // if (event[key] === span[0])
   // for (var i = 0; i < $span.length; i++){
