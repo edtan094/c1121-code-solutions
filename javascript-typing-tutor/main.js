@@ -1,13 +1,13 @@
 var $heading = document.querySelector('h1');
 var $span = document.querySelectorAll('span');
 // $heading.addEventListener('keydown', myFunction)
-document.addEventListener('keydown', myFunction)
-function myFunction (event){
-  console.log(event)
-  console.log(event.target)
-  console.log(event.target.tagName)
-  if(event.key === $span[0].textContent){
-    console.log("Hurray")
+document.addEventListener('keydown', myFunction);
+function myFunction(event) {
+  console.log(event);
+  console.log(event.target);
+  console.log(event.target.tagName);
+  if (event.key === $span[0].textContent) {
+    console.log('Hurray');
   }
   // if (event[key] === span[0])
   // for (var i = 0; i < $span.length; i++){
