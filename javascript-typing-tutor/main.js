@@ -1,32 +1,19 @@
 var $span = document.querySelectorAll('span');
-// $heading.addEventListener('keydown', myFunction)
+var spanElements = 0;
 document.addEventListener('keydown', myFunction);
 function myFunction(event) {
   console.log(event);
   console.log(event.target);
   console.log(event.target.tagName);
-
-  for (var spanElements = 0; spanElements < $span.length; spanElements++) {
-    if (event.key !== $span[spanElements].textContent) {
-      $span[spanElements].className = 'red-color';
-      return;
-    }
-    if (event.key === $span[spanElements].textContent) {
-      $span[spanElements].className = 'green-color';
-      $span[spanElements + 1].className = 'underline';
-    }
-    // if ($span[spanElements].className === 'green-color') {
-    // }
-    // if ($span[spanElements - 1].className === 'green-color') {
-    //   spanElements++;
-    // }
+  if (event.key !== $span[spanElements].textContent) {
+    $span[spanElements].className = 'red-color';
+    return;
   }
-  // if (event[key] === span[0])
-  // for (var i = 0; i < $span.length; i++){
-  //   if (event[key] === span[i] ){
-  //     true
-  //   }
-  // }
+  if (event.key === $span[spanElements].textContent) {
+    $span[spanElements].className = 'green-color';
+    $span[spanElements + 1].className = 'underline';
+  }
+  spanElements++;
 }
 
 // the first letter should start with an underscore
