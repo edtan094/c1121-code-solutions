@@ -5,8 +5,7 @@ function myFunction(event) {
   if (event.key !== $span[spanElements].textContent) {
     $span[spanElements].className = 'red-color';
     return;
-  }
-  if (event.key === $span[spanElements].textContent) {
+  } else {
     $span[spanElements].className = 'green-color';
     $span[spanElements + 1].className = 'underline';
   }
