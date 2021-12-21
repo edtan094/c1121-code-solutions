@@ -8,13 +8,13 @@
 // Starting from the beginning of the array, push these items into a new array with the size of the new array based on the size provided in the argument
 // once the size of the array has been hit, create a new array if there are more items left
 // return all the arrays
-// function chunk(array, size) {
-//   var newArray = [];
-//   if (size > array.length) {
-//     return newArray;
-//   }
-//   for (var i = 0; i < array.length; i += size) {
-//     newArray = array.slice(i, size);
-//   }
-//   return newArray;
-// }
+function chunk(array, size) {
+  if (array === []) {
+    return array;
+  }
+  for (size - 1; size < array.length; size++) {
+    var newArray = [];
+    newArray.unshift(array.slice(size));
+  }
+  return newArray;
+}
