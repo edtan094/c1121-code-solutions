@@ -18,10 +18,17 @@ function chunk(array, size) {
   var subArray = [];
   for (var arrayIndex = 0; arrayIndex < array.length; arrayIndex) {
     for (var sizeIndex = 1; sizeIndex <= size; sizeIndex++) {
-      subArray.push(array[arrayIndex]);
-      arrayIndex++;
+      if (arrayIndex >= array.length) {
+        allArrays.push(subArray);
+        subArray = [];
+        return allArrays;
+      } else {
+        subArray.push(array[arrayIndex]);
+        arrayIndex++;
+      }
     }
     allArrays.push(subArray);
+    subArray = [];
   }
   return allArrays;
 }
