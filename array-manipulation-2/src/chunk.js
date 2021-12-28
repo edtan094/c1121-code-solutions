@@ -11,12 +11,17 @@
 // create a new array if there are more items left and repeat step 2 starting with the item we have left off previously
 // return all the arrays
 function chunk(array, size) {
-  if (array === []) {
+  if (size > array.length) {
     return array;
   }
-  for (size; size < array.length; size * 2) {
-    var newArray = [[]];
-    newArray.unshift(array.slice(0, size));
+  var allArrays = [];
+  var subArray = [];
+  for (var arrayIndex = 0; arrayIndex < array.length; arrayIndex) {
+    for (var sizeIndex = 1; sizeIndex <= size; sizeIndex++) {
+      subArray.push(array[arrayIndex]);
+      arrayIndex++;
+    }
+    allArrays.push(subArray);
   }
-  return newArray;
+  return allArrays;
 }
