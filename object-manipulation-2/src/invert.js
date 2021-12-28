@@ -9,16 +9,9 @@
 // produce the object
 
 function invert(source) {
-  var array = [];
   var object = {};
-  for (var prop in source) {
-    array.push(prop);
-    array.push(source[prop]);
-  }
-  for (var i = 0; i < array.length; i++) {
-    if (i % 2 === 0) {
-      object[array[i + 1]] = array[i];
-    }
+  for (var propInSource in source) {
+    object[source[propInSource]] = propInSource;
   }
   return object;
 }

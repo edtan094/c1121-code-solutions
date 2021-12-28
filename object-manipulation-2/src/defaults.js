@@ -11,23 +11,9 @@
 
 function defaults(target, source) {
   for (var propInSource in source) {
-    if (source[propInSource] !== target[propInSource]) {
+    if (source[propInSource] !== target[propInSource] && target[propInSource] === undefined) {
       target[propInSource] = source[propInSource];
     }
   }
   return target;
-
 }
-
-// function defaults(target, source) {
-//   for (var propInSource in source) {
-//     for (var propInTarget in target) {
-//       if (source[propInSource] !== target[propInSource] && propInSource !== propInTarget) {
-//         target[propInSource] = source[propInSource];
-//       }
-//     }
-
-//   }
-//   return target;
-
-// }
