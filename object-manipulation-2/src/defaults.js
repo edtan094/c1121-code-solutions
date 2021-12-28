@@ -10,14 +10,24 @@
 // do not return anything. the target object will be modified
 
 function defaults(target, source) {
-  var sourcePropertyAndValues = [];
-  for (var prop in source) {
-    sourcePropertyAndValues.push(prop);
-    sourcePropertyAndValues.push(source[prop]);
-  }
-  for (var i = 0; i < sourcePropertyAndValues.length; i++) {
-    if (target[sourcePropertyAndValues[i]] === undefined && i % 2 === 0) {
-      target[sourcePropertyAndValues[i]] = sourcePropertyAndValues[i + 1];
+  for (var propInSource in source) {
+    if (source[propInSource] !== target[propInSource]) {
+      target[propInSource] = source[propInSource];
     }
   }
+  return target;
+
 }
+
+// function defaults(target, source) {
+//   for (var propInSource in source) {
+//     for (var propInTarget in target) {
+//       if (source[propInSource] !== target[propInSource] && propInSource !== propInTarget) {
+//         target[propInSource] = source[propInSource];
+//       }
+//     }
+
+//   }
+//   return target;
+
+// }
