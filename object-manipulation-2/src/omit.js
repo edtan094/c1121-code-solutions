@@ -10,31 +10,13 @@
 // for each property key within keys that matches a value within array, remove the property key and value from array
 // once that it is done, push the remaining values in array into object
 // produce the object
-// function omit(source, keys) {
-//   var object = {};
-//   var array = [];
-//   for (var prop in source) {
-//     array.push(prop);
-//     array.push(source[prop]);
-//   }
-//   for (var i = 0; i < keys.length; i++) {
-//     for (var j = 0; j < array.length; j++) {
-//       if (keys[i] === array[j]) {
-//         array.splice(j, 2);
-//       }
-//     }
-//   }
-//   for (var k = 0; k < array.length; k++) {
-//     if (k % 2 === 0) {
-//       object[array[k]] = source[array[k]];
-//     }
-//   }
-//   return object;
-// }
 
 function omit(source, keys) {
   var object = {};
   for (var propInSource in source) {
-
+    if (keys.includes(propInSource) === false) {
+      object[propInSource] = source[propInSource];
+    }
   }
+  return object;
 }
