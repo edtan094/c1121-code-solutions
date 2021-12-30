@@ -3,21 +3,28 @@
 // argument: firstString: any string
 //           secondString: any string
 // return: boolean whether or not secondString is an anagram of firstString
-// remove all spaces from both arguments
-// take the firstString and compare if the letters in the secondString match
-// if they match, return true
-// otherwise return false
+// loop through the firstString to check if all the letters in there match all the letters in secondString
+// if a letter in the firstString matches a letter in the second string, move on to the next letter on firstString and do not check that matched letter in secondString moving foward
+// ignore any spaces
+// if all letters match, return true
+// otherwise it is false
 function isAnagram(firstString, secondString) {
-  // for (var firstStringIndex = 0; firstStringIndex < firstString.length; firstStringIndex++) {
-  //   if (firstString[firstStringIndex] === ' ') {
-  //     firstString[firstStringIndex].replace(' ', '');
-  //   }
-  // }
-  // for (var secondStringIndex = 0; secondStringIndex < secondString.length; secondStringIndex++) {
-  //   if (secondString[secondStringIndex] === ' ') {
-  //     secondString[secondStringIndex].replace(' ', '');
-  //   }
   var newFirstString = firstString.replaceAll(' ', '');
   var newSecondString = secondString.replaceAll(' ', '');
-
+  var stringCounter = 0;
+  if (newFirstString.length !== newSecondString.length) {
+    return false;
+  }
+  for (var firstStringIndex = 0; firstStringIndex < newFirstString.length; firstStringIndex++) {
+    for (var secondStringIndex = 0; secondStringIndex < newSecondString.length; secondStringIndex++) {
+      if (newFirstString[firstStringIndex] === newSecondString[secondStringIndex]) {
+        stringCounter++;
+        newSecondString = newSecondString.replace(newSecondString[secondStringIndex], '');
+      }
+    }
+  } if (stringCounter === newFirstString.length) {
+    return true;
+  } else {
+    return false;
+  }
 }
