@@ -67,4 +67,17 @@ function circleButtons() {
 
 }
 
+function moveCircleButton(event) {
+  if (event.target.matches('.circle-button')) {
+    var circleId = event.target.getAttribute('id');
+    allImagesIndex = circleId - 1;
+    imageSwap();
+    clearInterval(imageSwapCounter);
+    imageSwapCounter++;
+    setInterval(imageSwap, 3000);
+  }
+}
+var $allOfTheCircleButtonsDiv = document.querySelector('#all-of-the-circle-buttons');
+$allOfTheCircleButtonsDiv.addEventListener('click', moveCircleButton);
+
 imageSwap();
