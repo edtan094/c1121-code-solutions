@@ -8,11 +8,21 @@
 // return this final variable
 
 function reverseWords(string) {
-  var finalString;
+  var finalString = '';
+  var backwardsFinalString = '';
   for (var stringIndex = 0; stringIndex < string.length; stringIndex++) {
     finalString += string[stringIndex];
-    if (string[stringIndex] === " "){
-      for (var finalStringIndex = finalString.length -1; finalStringIndex >= 0; finalStringIndex--)
+    if (string[stringIndex] === ' ' || stringIndex === string.length - 1) {
+      for (var finalStringIndex = finalString.length - 1; finalStringIndex >= 0; finalStringIndex--) {
+        if (finalString[finalStringIndex] !== ' ') {
+          backwardsFinalString += finalString[finalStringIndex];
+        }
+      }
+      if (stringIndex < string.length - 1) {
+        backwardsFinalString += string[stringIndex];
+        finalString = '';
+      }
     }
   }
+  return backwardsFinalString;
 }
