@@ -9,7 +9,7 @@ Bank.prototype.openAccount = function (holder, balance) {
     return null;
   } if (balance >= 0 && balance === Math.floor(balance)) {
     var newAccount = new Account(this.nextAccountNumber, holder);
-    newAccount.transactions = newAccount.deposit(balance);
+    newAccount.deposit(balance);
     this.accounts.push(newAccount);
     this.nextAccountNumber++;
     return newAccount.number;
