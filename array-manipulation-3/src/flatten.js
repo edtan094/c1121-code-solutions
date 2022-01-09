@@ -7,19 +7,13 @@
 // if the value is an array, loop through that array and obtain all the values within that array and push them into a new array
 // if the value is not an array, push the value into the new array
 // return the new array
+
 function flatten(array) {
   var newArray = [];
   for (var i = 0; i < array.length; i++) {
-    if (typeof array[i] === 'object') {
+    if (Array.isArray(array[i])) {
       for (var arrayIndex = 0; arrayIndex < array[i].length; arrayIndex++) {
-        if (array[i][arrayIndex] === undefined) {
-          for (var prop in array[i]) {
-            newArray.push(array[i][prop]);
-            i++;
-          }
-        } else {
-          newArray.push(array[i][arrayIndex]);
-        }
+        newArray.push(array[i][arrayIndex]);
       }
     } else {
       newArray.push(array[i]);
