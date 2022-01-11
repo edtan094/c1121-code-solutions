@@ -10,9 +10,17 @@
 
 function unique(array) {
   var newArray = [];
+  var status = true;
   for (var index = 0; index < array.length; index++) {
-    if (array[index] ===  )
+    for (var newArrayIndex = 0; newArrayIndex < newArray.length; newArrayIndex++) {
+      if (array[index] === newArray[newArrayIndex]) {
+        status = false;
+      }
+    }
+    if (status === true) {
+      newArray.push(array[index]);
+    }
+    status = true;
   }
+  return newArray;
 }
-
-// use .some()??
