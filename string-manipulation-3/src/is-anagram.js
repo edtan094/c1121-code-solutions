@@ -12,12 +12,17 @@ function isAnagram(firstString, secondString) {
   var newFirstString = firstString.replaceAll(' ', '');
   var newSecondString = secondString.replaceAll(' ', '');
   var stringCounter = 0;
+  var status = true;
   if (newFirstString.length !== newSecondString.length) {
     return false;
   }
   for (var firstStringIndex = 0; firstStringIndex < newFirstString.length; firstStringIndex++) {
+    status = true;
     for (var secondStringIndex = 0; secondStringIndex < newSecondString.length; secondStringIndex++) {
-      if (newFirstString[firstStringIndex] === newSecondString[secondStringIndex]) {
+      if (status === false) {
+        status = false;
+      } else if (newFirstString[firstStringIndex] === newSecondString[secondStringIndex]) {
+        status = false;
         stringCounter++;
         newSecondString = newSecondString.replace(newSecondString[secondStringIndex], '');
       }
