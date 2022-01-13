@@ -103,6 +103,9 @@ function findTheWinningPlayer(array) {
       highestScore = array[playersIndex].score;
       playerWithHighestScore = array[playersIndex];
     }
+    if (highestScore === array[playersIndex].score) {
+      return playTheGame(players, 2);
+    }
   }
   return playerWithHighestScore;
 }
