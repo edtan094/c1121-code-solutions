@@ -62,49 +62,83 @@ function createCards() {
 }
 var cardDeck = createCards();
 
-function dealCards() {
+function dealCards(array, numberOfCards) {
   var shuffledCardDeck = _.shuffle(cardDeck);
   console.log('shuffled deck', shuffledCardDeck);
-  for (var playersIndex = 0; playersIndex < players.length; playersIndex++) {
-    for (var deckIndex = 0; deckIndex < 2; deckIndex++) {
-      players[playersIndex].hand.push(shuffledCardDeck[deckIndex]);
+  for (var playersIndex = 0; playersIndex < array.length; playersIndex++) {
+    for (var deckIndex = 0; deckIndex < numberOfCards; deckIndex++) {
+      array[playersIndex].hand.push(shuffledCardDeck[deckIndex]);
     }
-    shuffledCardDeck.splice(0, 2);
+    shuffledCardDeck.splice(0, numberOfCards);
   }
 }
 
-dealCards();
+dealCards(players, 2);
 console.log('players with cards', players);
 
-function countThePlayersScore() {
-  for (var playersIndex = 0; playersIndex < players.length; playersIndex++) {
-    for (var playersHandIndex = 0; playersHandIndex < players[playersIndex].hand.length; playersHandIndex++) {
-      if (players[playersIndex].hand[playersHandIndex].rank === 'ace') {
-        players[playersIndex].score += 11;
+function countThePlayersScore(array) {
+  for (var playersIndex = 0; playersIndex < array.length; playersIndex++) {
+    for (var playersHandIndex = 0; playersHandIndex < array[playersIndex].hand.length; playersHandIndex++) {
+      if (array[playersIndex].hand[playersHandIndex].rank === 'ace') {
+        array[playersIndex].score += 11;
       }
-      if (players[playersIndex].hand[playersHandIndex].rank === 'jack' || players[playersIndex].hand[playersHandIndex].rank === 'queen' || players[playersIndex].hand[playersHandIndex].rank === 'king') {
-        players[playersIndex].score += 10;
+      if (array[playersIndex].hand[playersHandIndex].rank === 'jack' || array[playersIndex].hand[playersHandIndex].rank === 'queen' || array[playersIndex].hand[playersHandIndex].rank === 'king') {
+        array[playersIndex].score += 10;
       }
-      if (typeof players[playersIndex].hand[playersHandIndex].rank === 'number') {
-        players[playersIndex].score += players[playersIndex].hand[playersHandIndex].rank;
+      if (typeof array[playersIndex].hand[playersHandIndex].rank === 'number') {
+        array[playersIndex].score += array[playersIndex].hand[playersHandIndex].rank;
       }
     }
   }
 }
 
-countThePlayersScore();
+countThePlayersScore(players);
 console.log('players with cards and score', players);
 
-function findTheWinningPlayer() {
+function findTheWinningPlayer(array) {
   var highestScore = 0;
   var playerWithHighestScore;
-  for (var playerIndex = 0; playerIndex < players.length; playerIndex++) {
-    if (highestScore < players[playerIndex].score) {
-      highestScore = players[playerIndex].score;
-      playerWithHighestScore = players[playerIndex];
+  for (var playersIndex = 0; playersIndex < array.length; playersIndex++) {
+    if (highestScore < array[playersIndex].score) {
+      highestScore = array[playersIndex].score;
+      playerWithHighestScore = array[playersIndex];
     }
   }
   return playerWithHighestScore;
 }
 
-console.log('The winner is: ', findTheWinningPlayer());
+console.log('The winner is: ', findTheWinningPlayer(players));
+
+function playTheGame(array, numberOfCards) {
+  createCards();
+  dealCards(array, numberOfCards);
+  countThePlayersScore(array);
+  return findTheWinningPlayer(array);
+
+}
+
+var newPlayers = [
+  {
+    name: 'Edwin',
+    hand: [],
+    score: 0
+  },
+  {
+    name: 'Matt',
+    hand: [],
+    score: 0
+  },
+  {
+    name: 'Raymond',
+    hand: [],
+    score: 0
+  },
+  {
+    name: 'Haseeb',
+    hand: [],
+    score: 0
+  }
+
+];
+
+console.log('The winner of the whole new game is', playTheGame(newPlayers, 2));
