@@ -25,41 +25,19 @@ var players = [
 
 function createCards() {
   var cardDeck = [];
-  for (var cardNumber = 1; cardNumber < 14; cardNumber++) {
-    for (var suit = 1; suit < 5; suit++) {
+  var possibleCards = ['ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'jack', 'queen', 'king'];
+  var possibleSuits = ['clubs', 'diamonds', 'hearts', 'spades'];
+  for (var possibleCardsIndex = 0; possibleCardsIndex < possibleCards.length; possibleCardsIndex++) {
+    for (var possibleSuitsIndex = 0; possibleSuitsIndex < possibleSuits.length; possibleSuitsIndex++) {
       var card = {};
-      if (cardNumber === 1) {
-        card.rank = 'ace';
-      }
-      if (cardNumber > 1 && cardNumber < 11) {
-        card.rank = cardNumber;
-      }
-      if (cardNumber === 11) {
-        card.rank = 'jack';
-      }
-      if (cardNumber === 12) {
-        card.rank = 'queen';
-      }
-      if (cardNumber === 13) {
-        card.rank = 'king';
-      }
-      if (suit === 1) {
-        card.suit = 'clubs';
-      }
-      if (suit === 2) {
-        card.suit = 'diamonds';
-      }
-      if (suit === 3) {
-        card.suit = 'hearts';
-      }
-      if (suit === 4) {
-        card.suit = 'spades';
-      }
+      card.rank = possibleCards[possibleCardsIndex];
+      card.suit = possibleSuits[possibleSuitsIndex];
       cardDeck.push(card);
     }
   }
   return cardDeck;
 }
+
 var cardDeck = createCards();
 
 function dealCards(array, numberOfCards) {
