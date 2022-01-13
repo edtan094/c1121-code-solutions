@@ -28,14 +28,10 @@ function leftArrow(event) {
   setInterval(imageSwap, 3000);
   if (allImagesIndex < 0) {
     allImagesIndex = allImages.length - 1;
-    $image.removeAttribute('src');
-    $image.setAttribute('src', allImages[allImagesIndex]);
-    circleButtons();
-  } else {
-    circleButtons();
-    $image.removeAttribute('src');
-    $image.setAttribute('src', allImages[allImagesIndex]);
   }
+  circleButtons();
+  $image.removeAttribute('src');
+  $image.setAttribute('src', allImages[allImagesIndex]);
 }
 
 function rightArrow(event) {
@@ -45,14 +41,10 @@ function rightArrow(event) {
   setInterval(imageSwap, 3000);
   if (allImagesIndex >= allImages.length) {
     allImagesIndex = 0;
-    $image.removeAttribute('src');
-    $image.setAttribute('src', allImages[allImagesIndex]);
-    circleButtons();
-  } else {
-    circleButtons();
-    $image.removeAttribute('src');
-    $image.setAttribute('src', allImages[allImagesIndex]);
   }
+  circleButtons();
+  $image.removeAttribute('src');
+  $image.setAttribute('src', allImages[allImagesIndex]);
 }
 var $circleButtons = document.querySelectorAll('.circle-button');
 function circleButtons() {
