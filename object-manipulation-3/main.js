@@ -98,12 +98,16 @@ console.log('players with cards and score', players);
 function findTheWinningPlayer(array) {
   var highestScore = 0;
   var playerWithHighestScore;
+  var playerIndexWithHighestScore = null;
   for (var playersIndex = 0; playersIndex < array.length; playersIndex++) {
     if (highestScore < array[playersIndex].score) {
       highestScore = array[playersIndex].score;
-      playerWithHighestScore = array[playersIndex];
+      playerWithHighestScore = array[playersIndex].name;
+      playerIndexWithHighestScore = playersIndex;
     }
-    if (highestScore === array[playersIndex].score) {
+  }
+  for (playersIndex = 0; playersIndex < array.length; playersIndex++) {
+    if (highestScore === array[playersIndex].score && playersIndex !== playerIndexWithHighestScore) {
       return playTheGame(players, 2);
     }
   }
