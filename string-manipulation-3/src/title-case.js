@@ -73,19 +73,26 @@
 function titleCase(title) {
   var finalTitle = '';
   var finalProperTitle = '';
+  var status = false;
   for (var titleIndex = 0; titleIndex < title.length; titleIndex++) {
     finalTitle += title[titleIndex].toLowerCase();
-    if (finalTitle === 'javascript ') {
+    if (finalTitle === 'javascript ' && status === false) {
       finalTitle = 'javaScript ';
     }
     if (finalTitle === 'api') {
       finalTitle = 'API';
     }
+    if (finalTitle === 'i ') {
+      finalTitle = 'I ';
+    }
+    if (status === true) {
+      finalTitle += title[titleIndex].toUpperCase();
+    }
     if (title[titleIndex] === ' ' || titleIndex === title.length - 1) {
       for (var finalTitleIndex = 0; finalTitleIndex < finalTitle.length; finalTitleIndex++) {
         if (finalTitle.length > 3 && finalTitleIndex === 0 && finalTitle !== 'and ' && finalTitle !== 'or ' && finalTitle !== 'nor ' && finalTitle !== 'but ' && finalTitle !== 'a ' && finalTitle !== 'an ' && finalTitle !== 'the ' && finalTitle !== 'as ' && finalTitle !== 'at ' && finalTitle !== 'by ' && finalTitle !== 'for ' && finalTitle !== 'in ' && finalTitle !== 'of ' && finalTitle !== 'on ' && finalTitle !== 'per ' && finalTitle !== 'to ') {
           finalProperTitle += finalTitle[finalTitleIndex].toUpperCase();
-        } else if (finalTitle !== 'and ' && finalTitle !== 'or ' && finalTitle !== 'nor ' && finalTitle !== 'but ' && finalTitle !== 'a ' && finalTitle !== 'an ' && finalTitle !== 'the ' && finalTitle !== 'as ' && finalTitle !== 'at ' && finalTitle !== 'by ' && finalTitle !== 'for ' && finalTitle !== 'in ' && finalTitle !== 'of ' && finalTitle !== 'on ' && finalTitle !== 'per ' && finalTitle !== 'to ') {
+        } else if (finalTitle !== 'and ' && finalTitle !== 'or ' && finalTitle !== 'nor ' && finalTitle !== 'but ' && finalTitle !== 'a ' && finalTitle !== 'an ' && finalTitle !== 'the ' && finalTitle !== 'as ' && finalTitle !== 'at ' && finalTitle !== 'by ' && finalTitle !== 'for ' && finalTitle !== 'in ' && finalTitle !== 'of ' && finalTitle !== 'on ' && finalTitle !== 'per ' && finalTitle !== 'to ' && status === false) {
           finalProperTitle += finalTitle[finalTitleIndex];
         }
         if (finalTitle === 'and ' || finalTitle === 'or ' || finalTitle === 'nor ' || finalTitle === 'but ' || finalTitle === 'a ' || finalTitle === 'an ' || finalTitle === 'the ' || finalTitle === 'as ' || finalTitle === 'at ' || finalTitle === 'by ' || finalTitle === 'for ' || finalTitle === 'in ' || finalTitle === 'of ' || finalTitle === 'on ' || finalTitle === 'per ' || finalTitle === 'to ') {
@@ -93,6 +100,12 @@ function titleCase(title) {
         }
         if (finalTitle[finalTitleIndex - 1] === '-') {
           finalProperTitle += finalTitle[finalTitleIndex].toUpperCase();
+        }
+        if (status === true) {
+          status = false;
+        }
+        if (finalTitle[finalTitleIndex] === ':') {
+          status = true;
         }
       }
     }
