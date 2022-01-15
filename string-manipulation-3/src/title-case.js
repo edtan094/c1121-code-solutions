@@ -75,9 +75,16 @@ function titleCase(title) {
   var finalProperTitle = '';
   var status = false;
   for (var titleIndex = 0; titleIndex < title.length; titleIndex++) {
-    finalTitle += title[titleIndex].toLowerCase();
-    if (finalTitle === 'javascript ' && status === false) {
+    if (titleIndex === 0) {
+      finalTitle += title[titleIndex].toUpperCase();
+    } else {
+      finalTitle += title[titleIndex].toLowerCase();
+    }
+    if ((finalTitle === 'Javascript ' && status === false) || (finalTitle === 'javascript ' && status === false)) {
       finalTitle = 'javaScript ';
+    }
+    if ((finalTitle === 'Javascript: ' && status === false) || (finalTitle === 'javascript: ' && status === false)) {
+      finalTitle = 'javaScript: ';
     }
     if (finalTitle === 'api') {
       finalTitle = 'API';
@@ -85,23 +92,20 @@ function titleCase(title) {
     if (finalTitle === 'i ') {
       finalTitle = 'I ';
     }
-    if (status === true) {
-      finalTitle += title[titleIndex].toUpperCase();
-    }
     if (title[titleIndex] === ' ' || titleIndex === title.length - 1) {
       for (var finalTitleIndex = 0; finalTitleIndex < finalTitle.length; finalTitleIndex++) {
-        if (finalTitle.length > 3 && finalTitleIndex === 0 && finalTitle !== 'and ' && finalTitle !== 'or ' && finalTitle !== 'nor ' && finalTitle !== 'but ' && finalTitle !== 'a ' && finalTitle !== 'an ' && finalTitle !== 'the ' && finalTitle !== 'as ' && finalTitle !== 'at ' && finalTitle !== 'by ' && finalTitle !== 'for ' && finalTitle !== 'in ' && finalTitle !== 'of ' && finalTitle !== 'on ' && finalTitle !== 'per ' && finalTitle !== 'to ') {
+        if ((finalTitleIndex === 0 && finalTitle !== 'and ' && finalTitle !== 'or ' && finalTitle !== 'nor ' && finalTitle !== 'but ' && finalTitle !== 'a ' && finalTitle !== 'an ' && finalTitle !== 'the ' && finalTitle !== 'as ' && finalTitle !== 'at ' && finalTitle !== 'by ' && finalTitle !== 'for ' && finalTitle !== 'in ' && finalTitle !== 'of ' && finalTitle !== 'on ' && finalTitle !== 'per ' && finalTitle !== 'to ') || status === true) {
           finalProperTitle += finalTitle[finalTitleIndex].toUpperCase();
-        } else if (finalTitle !== 'and ' && finalTitle !== 'or ' && finalTitle !== 'nor ' && finalTitle !== 'but ' && finalTitle !== 'a ' && finalTitle !== 'an ' && finalTitle !== 'the ' && finalTitle !== 'as ' && finalTitle !== 'at ' && finalTitle !== 'by ' && finalTitle !== 'for ' && finalTitle !== 'in ' && finalTitle !== 'of ' && finalTitle !== 'on ' && finalTitle !== 'per ' && finalTitle !== 'to ' && status === false) {
+        } else if (finalTitle !== 'and ' && finalTitle !== 'or ' && finalTitle !== 'nor ' && finalTitle !== 'but ' && finalTitle !== 'a ' && finalTitle !== 'an ' && finalTitle !== 'the ' && finalTitle !== 'as ' && finalTitle !== 'at ' && finalTitle !== 'by ' && finalTitle !== 'for ' && finalTitle !== 'in ' && finalTitle !== 'of ' && finalTitle !== 'on ' && finalTitle !== 'per ' && finalTitle !== 'to ' && status === false && finalTitle[finalTitleIndex - 1] !== '-') {
           finalProperTitle += finalTitle[finalTitleIndex];
         }
-        if (finalTitle === 'and ' || finalTitle === 'or ' || finalTitle === 'nor ' || finalTitle === 'but ' || finalTitle === 'a ' || finalTitle === 'an ' || finalTitle === 'the ' || finalTitle === 'as ' || finalTitle === 'at ' || finalTitle === 'by ' || finalTitle === 'for ' || finalTitle === 'in ' || finalTitle === 'of ' || finalTitle === 'on ' || finalTitle === 'per ' || finalTitle === 'to ') {
+        if ((finalTitle === 'and ' || finalTitle === 'or ' || finalTitle === 'nor ' || finalTitle === 'but ' || finalTitle === 'a ' || finalTitle === 'an ' || finalTitle === 'the ' || finalTitle === 'as ' || finalTitle === 'at ' || finalTitle === 'by ' || finalTitle === 'for ' || finalTitle === 'in ' || finalTitle === 'of ' || finalTitle === 'on ' || finalTitle === 'per ' || finalTitle === 'to ') && status === false) {
           finalProperTitle += finalTitle[finalTitleIndex];
         }
         if (finalTitle[finalTitleIndex - 1] === '-') {
           finalProperTitle += finalTitle[finalTitleIndex].toUpperCase();
         }
-        if (status === true) {
+        if (status === true && finalTitle[finalTitleIndex] !== ' ') {
           status = false;
         }
         if (finalTitle[finalTitleIndex] === ':') {
