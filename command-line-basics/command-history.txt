@@ -1,0 +1,197 @@
+    1  cd ~/repos
+    2  git clone git@github.com/edtan094/ajax-project.git
+    3  git clone git@github.com:edtan094/ajax-project.git
+    4  cd ajax-project
+    5  npm ci
+    6  git status
+    7  git branch issue-1-user-can-view-available-weapons-in-BOTW
+    8  git switch issue-1-user-can-view-available-weapons-in-BOTW
+    9  git status
+   10  git commit -m "Add a div[data-view="home-page"] to the HTML. Create the heading of the page"
+   11  git add css/layout.css
+   12  git add css/styles.css
+   13  git add index.html
+   14  git add images/link.jpg
+   15  git status
+   16  git commit -m "Add a div[data-view="home-page"] to the HTML. Create the heading of the page"
+   17  git push origin issue-1-user-can-view-available-weapons-in-BOTW
+   18  git status
+   19  git add css/styles.css
+   20  git add index.html
+   21  git commit -m "Adding some style to ensure that heading is at the top of the page"
+   22  git push origin issue-1-user-can-view-available-weapons-in-BOTW
+   23  git status
+   24  git add css/layout.css
+   25  git add css.styles.css
+   26  git add css/styles.css
+   27  git add index.html
+   28  git status
+   29  git commit -m "Ensure that the CSS is ready and the container are ready to hold the data from the API."
+   30  git push origin issue-1-user-can-view-available-weapons-in-BOTW
+   31  git status
+   32  git add index.html
+   33  git add js/main.js
+   34  git commit -m "Create a variable that will hold all the listed weapons by querying (#weapon-list). Create a variable for xhr. Add an event listener to the xhr that will load all the data from the API onto the page as soon as the page loads"
+   35  git commit -m "Create a variable that will hold all the listed weapons by querying (#weapon-list). Create a variable for xhr. Add an event listener to the xhr that will load all the data from the API onto the page as soon as the page loads" --no-verify
+   36  git push origin issue-1-user-can-view-available-weapons-in-BOTW
+   37  git status
+   38  git add css/
+   39  git status
+   40  git add images/link-overlay.jpg
+   41  git status
+   42  git add index.html
+   43  git add js/main.js
+   44  git status
+   45  git commit -m "Ensure that the page looks nice on both mobile-sized and desktop-sized screens.Ensure all items can be viewed by the user by scrolling. Verify that the weapon elements are within the container and have the appropriate spacing"
+   46  git status
+   47  git commit -m "Ensure that the page looks nice on both mobile-sized and desktop-sized screens.Ensure all items can be viewed by the user by scrolling. Verify that the weapon elements are within the container and have the appropriate spacing"
+   48  git status
+   49  git add js/main.js
+   50  git status
+   51  git add css/styles.css
+   52  git status
+   53  git commit -m "Ensure that the page looks nice on both mobile-sized and desktop-sized screens.Ensure all items can be viewed by the user by scrolling. Verify that the weapon elements are within the container and have the appropriate spacing"
+   54  git push origin issue-1-user-can-view-available-weapons-in-BOTW
+   55  git status
+   56  git switch master
+   57  cd ~/repos/ajax-project
+   58  git branch --list
+   59  git switch issue-4-user-can-save-each-weapon-to-list-to-see-for-later 
+   60  git switch master
+   61  git pull origin master
+   62  git remote -v
+   63  git pull origin master
+   64  ssh -T git@github.com
+   65  cd ~/repos/ajax-project
+   66  git pull origin master
+   67  git status
+   68  git branch --list
+   69  git branch issue-5-user-can-delete-a-saved-weapon-from-list
+   70  git switch issue-5-user-can-delete-a-saved-weapon-from-list
+   71  git status
+   72  git add css/
+   73  git add js/
+   74  git status
+   75  git commit -m "add a delete button feature for the user to see on weapons the user has previously saved"
+   76  git push origin issue-5-user-can-delete-a-saved-weapon-from-list
+   77  git status
+   78  git add css/
+   79  git add js/
+   80  git status
+   81  git commit -m "ensure that once the delete button is hit by the user, the entry from data.saved is removed. ensure that the weapon is removed from the saved list even after refreshing the page. remove and unnecessary css and console.log."
+   82  git push origin issue-5-user-can-delete-a-saved-weapon-from-list
+   83  git status
+   84  git add js/
+   85  git status
+   86  git commit -m "Fixed some bugs with the saved entries not being listed when refreshing"
+   87  git push origin issue-5-user-can-delete-a-saved-weapon-from-list
+   88  git status
+   89  git switch master
+   90  cd ~/repos/c1121-code-solutions
+   91  git switch string-manipulation-3
+   92  git status
+   93  git add string-manipulation-3
+   94  git status
+   95  git commit -m "Working on title case."
+   96  git push string-manipulation-3
+   97  git push origin string-manipulation-3
+   98  git switch master
+   99  git branch object-manipulation-3
+  100  git switch object-manipulation-3
+  101  git switch master
+  102  cd ~/repos/c1121-code-solutions
+  103  git switch es6-arrow-functions
+  104  git switch master
+  105  git pull origin master
+  106  git status
+  107  git switch command-line-basics
+  108  git branch command-line-basics
+  109  git switch command-line-basics
+  110  cd command-line-basics
+  111  pwd
+  112  man man
+  113  man cat
+  114  cat laziness.txt
+  115  cat impatience.txt
+  116  cat laziness.txt impatience.txt hubris.txt
+  117  cat laziness.txt impatience.txt hubris.txt > three-virtues.txt
+  118  cat three-virtues.txt
+  119  man ls
+  120  man man
+  121  man cat
+  122  ls 
+  123  ls -a
+  124  man ls
+  125  ls -F
+  126  ls lfz-staff/
+  127  lfz-staff/ -a
+  128  ls lfz-staff/ -a
+  129  ls lfz-staff/ -F
+  130  ls lfz-staff/
+  131  ls -aF lfz-staff > lfz-staff/contents.txt
+  132  cat lfz-staff/contents.txt
+  133  man pwd
+  134  pwd
+  135  pwd > i-was-here.txt
+  136  pwd
+  137  ls
+  138  cat i-was-here.txt
+  139  pwd
+  140  ls
+  141  man echo
+  142  echo 'Hello, World!'
+  143  echo 'Hello, World!' > hello.txt
+  144  ls
+  145  cat hello.txt
+  146  man cat
+  147  man touch
+  148  touch tag-youre-it.txt
+  149  ls snoot/
+  150  pwd
+  151  touch snoot/boop.txt
+  152  ls
+  153  ls snoot/
+  154  man mkdir
+  155  mkdir parent
+  156  ls
+  157  man mkdir
+  158  mkdir -p parents/child/grandchild
+  159  ls
+  160  rm parents
+  161  rmdir parents
+  162  pwd parents
+  163  pwd
+  164  rm -r parents/
+  165  ls
+  166  ls parent/
+  167  ls
+  168  mkdir -p parent/child/grandchild
+  169  ls
+  170  touch parent/child/grandchild/.gitkeep
+  171  ls -a
+  172  ls -a parent/child/grandchild
+  173  man mv
+  174  mv pokiemans pokemon
+  175  ls
+  176  man rm
+  177  man r,m
+  178  man rm
+  179  rm lol.txt
+  180  ls
+  181  rm -r kill-me/
+  182  ls
+  183  man cp
+  184  cp and-then.txt
+  185  man cp
+  186  cp --help
+  187  pwd
+  188  cp and-then.txt command-line-basics/
+  189  pwd
+  190  ls
+  191  man cp
+  192  cp and-then.txt no-and-then.txt
+  193  ls
+  194  cat and-then.txt no-and-then.txt
+  195  man history
+  196  history
+  197  history > command-history.txt
