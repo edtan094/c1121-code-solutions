@@ -9,27 +9,19 @@
 // if all letters match, return true
 // otherwise it is false
 function isAnagram(firstString, secondString) {
-  var newFirstString = firstString.replaceAll(' ', '');
-  var newSecondString = secondString.replaceAll(' ', '');
-  var stringCounter = 0;
-  var status = true;
-  if (newFirstString.length !== newSecondString.length) {
-    return false;
-  }
-  for (var firstStringIndex = 0; firstStringIndex < newFirstString.length; firstStringIndex++) {
-    status = true;
-    for (var secondStringIndex = 0; secondStringIndex < newSecondString.length; secondStringIndex++) {
-      if (status === false) {
-        status = false;
-      } else if (newFirstString[firstStringIndex] === newSecondString[secondStringIndex]) {
-        status = false;
-        stringCounter++;
-        newSecondString = newSecondString.replace(newSecondString[secondStringIndex], '');
-      }
+  const newFirstString = firstString.replaceAll(' ', '');
+  const newSecondString = secondString.replaceAll(' ', '');
+
+  const firstStringArray = newFirstString.split('');
+  const secondStringArray = newSecondString.split('');
+
+  const newFirstStingArray = firstStringArray.sort();
+  const newSecondStringArray = secondStringArray.sort();
+
+  for (let index = 0; index < newFirstStingArray.length; index++) {
+    if (newFirstStingArray[index] !== newSecondStringArray[index]) {
+      return false;
     }
-  } if (stringCounter === newFirstString.length) {
-    return true;
-  } else {
-    return false;
   }
+  return true;
 }
