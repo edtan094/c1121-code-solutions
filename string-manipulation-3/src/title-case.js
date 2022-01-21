@@ -7,6 +7,7 @@ function titleCase(title) {
   var finalTitle = '';
   var finalProperTitle = '';
   var status = false;
+  var shortWords = ['and ', 'or ', 'nor ', 'but ', 'a ', 'an ', 'the ', 'as ', 'at ', 'by ', 'for ', 'in ', 'of ', 'on ', 'per ', 'to '];
   for (var titleIndex = 0; titleIndex < title.length; titleIndex++) {
     if (titleIndex === 0) {
       finalTitle += title[titleIndex].toUpperCase();
@@ -27,12 +28,12 @@ function titleCase(title) {
     }
     if (title[titleIndex] === ' ' || titleIndex === title.length - 1) {
       for (var finalTitleIndex = 0; finalTitleIndex < finalTitle.length; finalTitleIndex++) {
-        if ((finalTitleIndex === 0 && finalTitle !== 'and ' && finalTitle !== 'or ' && finalTitle !== 'nor ' && finalTitle !== 'but ' && finalTitle !== 'a ' && finalTitle !== 'an ' && finalTitle !== 'the ' && finalTitle !== 'as ' && finalTitle !== 'at ' && finalTitle !== 'by ' && finalTitle !== 'for ' && finalTitle !== 'in ' && finalTitle !== 'of ' && finalTitle !== 'on ' && finalTitle !== 'per ' && finalTitle !== 'to ') || status === true) {
+        if ((finalTitleIndex === 0 && !shortWords.includes(finalTitle)) || status === true) {
           finalProperTitle += finalTitle[finalTitleIndex].toUpperCase();
-        } else if (finalTitle !== 'and ' && finalTitle !== 'or ' && finalTitle !== 'nor ' && finalTitle !== 'but ' && finalTitle !== 'a ' && finalTitle !== 'an ' && finalTitle !== 'the ' && finalTitle !== 'as ' && finalTitle !== 'at ' && finalTitle !== 'by ' && finalTitle !== 'for ' && finalTitle !== 'in ' && finalTitle !== 'of ' && finalTitle !== 'on ' && finalTitle !== 'per ' && finalTitle !== 'to ' && status === false && finalTitle[finalTitleIndex - 1] !== '-') {
+        } else if (!shortWords.includes(finalTitle) && status === false && finalTitle[finalTitleIndex - 1] !== '-') {
           finalProperTitle += finalTitle[finalTitleIndex];
         }
-        if ((finalTitle === 'and ' || finalTitle === 'or ' || finalTitle === 'nor ' || finalTitle === 'but ' || finalTitle === 'a ' || finalTitle === 'an ' || finalTitle === 'the ' || finalTitle === 'as ' || finalTitle === 'at ' || finalTitle === 'by ' || finalTitle === 'for ' || finalTitle === 'in ' || finalTitle === 'of ' || finalTitle === 'on ' || finalTitle === 'per ' || finalTitle === 'to ') && status === false) {
+        if (shortWords.includes(finalTitle) && status === false) {
           finalProperTitle += finalTitle[finalTitleIndex];
         }
         if (finalTitle[finalTitleIndex - 1] === '-') {
