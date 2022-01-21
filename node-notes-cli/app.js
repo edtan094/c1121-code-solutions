@@ -29,7 +29,6 @@ if (appFunctions === 'read') {
   }
 } else if (appFunctions === 'update') {
   nodeArgument = parseInt(nodeArgument);
-  console.log(json.notes[nodeArgument]);
   json.notes[nodeArgument] = secondNodeArgument;
   const data = JSON.stringify(json, null, 2);
   fs.writeFile('data.json', data, 'utf-8', err => {
