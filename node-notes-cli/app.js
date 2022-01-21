@@ -1,7 +1,8 @@
 const fs = require('fs');
 const json = require('./data.json');
 const appFunctions = process.argv[2];
-const nodeArgument = process.argv[3];
+let nodeArgument = process.argv[3];
+const secondNodeArgument = process.argv[4];
 if (appFunctions === 'read') {
   for (const prop in json.notes) {
     console.log(`${prop}: ${json.notes[prop]}`);
@@ -12,7 +13,7 @@ if (appFunctions === 'read') {
   const data = JSON.stringify(json, null, 2);
   fs.writeFile('data.json', data, 'utf-8', err => {
     if (err) throw err;
-    console.log('Update Complete!');
+    console.log('Created!');
   });
 } else if (appFunctions === 'delete') {
   for (let prop in json.notes) {
@@ -26,4 +27,13 @@ if (appFunctions === 'read') {
       });
     }
   }
+} else if (appFunctions === 'update') {
+  nodeArgument = parseInt(nodeArgument);
+  console.log(json.notes[nodeArgument]);
+  json.notes[nodeArgument] = secondNodeArgument;
+  const data = JSON.stringify(json, null, 2);
+  fs.writeFile('data.json', data, 'utf-8', err => {
+    if (err) throw err;
+    console.log('Updated!');
+  });
 }
