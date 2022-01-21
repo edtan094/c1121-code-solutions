@@ -16,17 +16,14 @@ if (appFunctions === 'read') {
     console.log('Created!');
   });
 } else if (appFunctions === 'delete') {
-  for (let prop in json.notes) {
-    if (prop === nodeArgument) {
-      prop = parseInt(prop);
-      delete json.notes[prop];
-      const data = JSON.stringify(json, null, 2);
-      fs.writeFile('data.json', data, 'utf-8', err => {
-        if (err) throw err;
-        console.log('Deleted!');
-      });
-    }
-  }
+  nodeArgument = parseInt(nodeArgument);
+  delete json.notes[nodeArgument];
+  const data = JSON.stringify(json, null, 2);
+  fs.writeFile('data.json', data, 'utf-8', err => {
+    if (err) throw err;
+    console.log('Deleted!');
+  });
+
 } else if (appFunctions === 'update') {
   nodeArgument = parseInt(nodeArgument);
   json.notes[nodeArgument] = secondNodeArgument;
