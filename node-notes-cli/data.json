@@ -1,0 +1,9 @@
+{
+  "nextId": 7,
+  "notes": {
+    "2": "Prototypal inheritance is how JavaScript objects delegate behavior.",
+    "3": "In JavaScript, the value of `this` is determined when a function is called; not when it is defined.",
+    "4": "This is the way.",
+    "5": "Steph Curry is the greatest shooter ever."
+  }
+}
