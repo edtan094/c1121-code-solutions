@@ -22,9 +22,6 @@ app.get('/api/notes/:id', function (req, res) {
     res.status(404).json({ error: `cannot find note with id ${id}` });
   } else if (json.notes[id] !== undefined) {
     res.status(200).json(json.notes[id]);
-  } else {
-    console.error(new Error());
-    res.sendStatus(500);
   }
 });
 
