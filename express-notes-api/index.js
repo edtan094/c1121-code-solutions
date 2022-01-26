@@ -28,7 +28,7 @@ app.get('/api/notes/:id', function (req, res) {
 app.post('/api/notes', function (req, res) {
   if (req.body.content === undefined) {
     res.status(400).json({ error: 'content is a required field' });
-  } if (req.body !== undefined) {
+  } if (req.body.content !== undefined) {
     req.body.id = json.nextId;
     json.notes[json.nextId] = req.body;
     json.nextId++;
@@ -37,8 +37,9 @@ app.post('/api/notes', function (req, res) {
       if (err) {
         console.error({ error: 'An unexpected error occurred.' });
         res.status(500).json({ error: 'An unexpected error occurred.' });
+      } else {
+        res.status(201).json(req.body);
       }
-      res.status(201).json(req.body);
     });
   }
 
@@ -57,8 +58,9 @@ app.delete('/api/notes/:id', function (req, res) {
       if (err) {
         console.error({ error: 'An unexpected error occurred.' });
         res.status(500).json({ error: 'An unexpected error occurred.' });
+      } else {
+        res.sendStatus(204);
       }
-      res.sendStatus(204);
     });
   }
 });
@@ -79,8 +81,9 @@ app.put('/api/notes/:id', function (req, res) {
       if (err) {
         console.error({ error: 'An unexpected error occurred.' });
         res.status(500).json({ error: 'An unexpected error occurred.' });
+      } else {
+        res.status(200).json(req.body);
       }
-      res.status(200).json(req.body);
     });
   }
 });
