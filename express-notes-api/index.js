@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const json = require('./data.json');
+const expressJSON = express.json();
+app.use(expressJSON);
 
 app.get('/api/notes', function (req, res) {
   const array = [];
@@ -19,6 +21,16 @@ app.get('/api/notes/:id', function (req, res) {
   } else if (json.notes[id] !== undefined) {
     res.status(200).json(json.notes[id]);
   }
+});
+
+app.post('/api/notes', function (req, res) {
+  if (req.body === undefined) {
+    res.status(400).json({ error: 'content is a required field' });
+  }
+  req.body.id = json.nextId;
+  json.notes[json.nextId] = req.body;
+  json.nextId++;
+  res.status(201).json(req.body);
 });
 
 app.listen(3000, function () {
