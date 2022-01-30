@@ -63,6 +63,7 @@ app.put('/api/grades/:gradeId', (req, res) => {
     res.status(400).json({
       error: 'Missing name, course, score, score is not an integer from 0 - 100, or id is not an integer greater than 0'
     });
+    return;
   }
   const text = 'update grades set name = $1, course = $2, score = $3 where "gradeId" = $4 returning *';
   const values = [body.name, body.course, body.score, id];
