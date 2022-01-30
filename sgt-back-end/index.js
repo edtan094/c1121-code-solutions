@@ -115,6 +115,7 @@ app.delete('/api/grades/:gradeId', (req, res) => {
       });
     });
 });
+
 app.listen(3000, function () {
   // eslint-disable-next-line no-console
   console.log('Listening on 3000!');
