@@ -37,6 +37,7 @@ app.post('/api/grades', (req, res) => {
     res.status(400).json({
       error: 'Missing name, course, score, or score is not an integer from 0 - 100'
     });
+    return;
   }
 
   const text = 'insert into grades(name, course, score) values($1, $2, $3) returning *';
@@ -47,7 +48,7 @@ app.post('/api/grades', (req, res) => {
       res.status(201).json(grade);
     })
     .catch(err => {
-      console.log(err);
+      console.error(err);
       res.status(500).json({
         error: 'An unexpected error occurred.'
       });
@@ -79,13 +80,41 @@ app.put('/api/grades/:gradeId', (req, res) => {
       }
     })
     .catch(err => {
-      console.log(err);
+      console.error(err);
       res.status(500).json({
         error: 'An unexpected error occurred.'
       });
     });
 });
 
+app.delete('/api/grades/:gradeId', (req, res) => {
+  const id = parseFloat(req.params.gradeId);
+  if (Math.floor(id) !== id || id < 0) {
+    res.status(400).json({
+      error: 'id is not an integer greater than 0'
+    });
+    return;
+  }
+  const text = 'delete from grades where "gradeId" = $1 returning *';
+  const values = [id];
+  db.query(text, values)
+    .then(result => {
+      const grade = result.rows[0];
+      if (grade === undefined) {
+        res.status(404).json({
+          error: `Cannot find grade with gradeId ${id}`
+        });
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({
+        error: 'An unexpected error occured'
+      });
+    });
+});
 app.listen(3000, function () {
   // eslint-disable-next-line no-console
   console.log('Listening on 3000!');
