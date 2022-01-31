@@ -28,7 +28,7 @@ console.log('product: ', product);
 const accountSum = (previousValue, currentValue) => {
   let sum = 0;
   if (previousValue.type === 'withdrawal') {
-    previousValue.amount = previousValue.amount * -1;
+    previousValue = previousValue * -1;
   }
   if (currentValue.type === 'withdrawal') {
     currentValue.amount = currentValue.amount * -1;
