@@ -31,9 +31,10 @@ const accountSum = (previousValue, currentValue) => {
     previousValue = previousValue * -1;
   }
   if (currentValue.type === 'withdrawal') {
-    currentValue.amount = currentValue.amount * -1;
+    sum = previousValue - currentValue.amount;
+  } else {
+    sum = previousValue + currentValue.amount;
   }
-  sum = previousValue + currentValue.amount;
   return sum;
 };
 const balance = account.reduce(accountSum, 0);
