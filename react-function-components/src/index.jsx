@@ -5,9 +5,7 @@ function CustomButton() {
   return <button>Click Me!</button>;
 }
 
-const element = CustomButton();
-
 ReactDOM.render(
-  element,
+  <CustomButton/>,
   document.querySelector('#root')
 );
