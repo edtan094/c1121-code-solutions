@@ -6,5 +6,5 @@ const heading = React.createElement(
   null,
   'Hello, React!'
 );
-
-ReactDOM.render(heading, document);
+const $root = document.querySelector('#root');
+ReactDOM.render(heading, $root);
