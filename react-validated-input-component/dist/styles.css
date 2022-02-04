@@ -1,0 +1,12 @@
+.row {
+  display: flex;
+}
+
+.red {
+  color: red;
+}
+
+.error-message {
+  margin-left: 60px;
+  margin-top: 0;
+}
