@@ -28,7 +28,7 @@ export default class NewsletterForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>Email
-          <input onChange={this.handleChange} type={this.state.value} name='email'></input>
+          <input onChange={this.handleChange} value={this.state.value} name='email'></input>
         </label>
         <input type="submit" value="Submit"></input>
       </form>
