@@ -1,0 +1,28 @@
+.container {
+  height: 100vh;
+  width: 300px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  margin: 10px 0;
+}
+
+.overlay {
+  background: rgba(63, 62, 62, 0.507);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+
+.background-color-white {
+  background-color: white;
+}
+
+.row {
+  display: flex;
+}
