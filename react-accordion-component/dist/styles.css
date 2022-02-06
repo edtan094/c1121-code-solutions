@@ -1,0 +1,25 @@
+.row {
+  display: flex;
+}
+
+.direction-column {
+  flex-direction: column;
+}
+
+button {
+  width: 200px;
+  background-color: white;
+}
+
+.closed {
+  display: none;
+}
+
+.borders {
+  border-style: solid;
+}
+
+.description {
+  height: 40px;
+  width: 200px;
+}
