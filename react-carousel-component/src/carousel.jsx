@@ -23,6 +23,9 @@ export default class Carousel extends React.Component {
       { image: pokemon[index].image }
     );
     this.highlightDot();
+    clearInterval(this.interval);
+    this.componentDidMount();
+
   }
 
   moveToTheLeft() {
@@ -34,6 +37,8 @@ export default class Carousel extends React.Component {
       { image: pokemon[index].image }
     );
     this.highlightDot();
+    clearInterval(this.interval);
+    this.componentDidMount();
   }
 
   handleClick(event) {
@@ -42,6 +47,18 @@ export default class Carousel extends React.Component {
     }
     if (event.target.id === 'left-arrow') {
       this.moveToTheLeft();
+    }
+    if (event.target.className.includes('circle-button')) {
+      index = parseInt(event.target.id);
+      this.setState(
+        {
+          image: pokemon[index].image,
+          circle: index
+        }
+      );
+      this.highlightDot();
+      clearInterval(this.interval);
+      this.componentDidMount();
     }
   }
 
@@ -58,12 +75,8 @@ export default class Carousel extends React.Component {
 
   }
 
-  move() {
-    const intervalID = setInterval(this.moveToTheRight, 3000);
-  }
-
-  stop(intervalID) {
-    clearInterval(intervalID);
+  componentDidMount() {
+    this.interval = setInterval(this.moveToTheRight, 3000);
   }
 
   render() {
@@ -88,11 +101,11 @@ export default class Carousel extends React.Component {
             </div>
           </div>
           <div className="row justify-center" id="all-of-the-circle-buttons">
-            <i className="fas fa-circle padding-left-right circle-button" id="0"></i>
-            <i className="far fa-circle padding-left-right circle-button" id="1"></i>
-            <i className="far fa-circle padding-left-right circle-button" id="2"></i>
-            <i className="far fa-circle padding-left-right circle-button" id="3"></i>
-            <i className="far fa-circle padding-left-right circle-button" id="4"></i>
+            <i onClick={this.handleClick} className="fas fa-circle padding-left-right circle-button" id="0"></i>
+            <i onClick={this.handleClick} className="far fa-circle padding-left-right circle-button" id="1"></i>
+            <i onClick={this.handleClick} className="far fa-circle padding-left-right circle-button" id="2"></i>
+            <i onClick={this.handleClick} className="far fa-circle padding-left-right circle-button" id="3"></i>
+            <i onClick={this.handleClick} className="far fa-circle padding-left-right circle-button" id="4"></i>
           </div>
         </div>
       </div>
