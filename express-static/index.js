@@ -2,10 +2,11 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const publicPath = path.join('__dirname', 'public');
+
+const publicPath = path.join(__dirname, 'public');
 console.log(publicPath);
 
-const staticPublic = express.static('public');
+const staticPublic = express.static(publicPath);
 app.use(staticPublic);
 
 app.listen(
