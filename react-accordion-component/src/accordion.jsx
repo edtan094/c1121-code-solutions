@@ -4,33 +4,22 @@ export default class Accordion extends React.Component {
   constructor(prop) {
     super(prop);
     this.state = {
-      1: 'closed',
-      2: 'closed',
-      3: 'closed'
+      open: null
     };
     this.handleClick = this.handleClick.bind(this);
     this.showOrHideDescription = this.showOrHideDescription.bind(this);
   }
 
-  showOrHideDescription(number, event) {
-    if (this.state[number] === 'closed') {
-      this.setState(
-        { [number]: 'open' }
-      );
-    } else if (this.state[number] === 'open') {
-      this.setState(
-        { [number]: 'closed' }
-      );
+  showOrHideDescription(event) {
+    if (this.state.open === event.target.id) {
+      this.setState({ open: null });
+    } else {
+      this.setState({ open: event.target.id });
     }
   }
 
   handleClick(event) {
-    for (const prop in this.state) {
-      if (prop === event.target.id) {
-        const number = prop;
-        this.showOrHideDescription(number, event);
-      }
-    }
+    this.showOrHideDescription(event);
   }
 
   render() {
@@ -41,7 +30,7 @@ export default class Accordion extends React.Component {
           <button onClick={this.handleClick} id={topic.number}>
             {topic.title}
           </button>
-          <div className={this.state[topic.number] + ' borders description'}>{topic.Description}</div>
+          <div className={'closed' + ' borders description'}>{topic.Description}</div>
         </div>
       );
     });
@@ -56,3 +45,5 @@ export const topics = [
   { number: 2, title: 'Cascading Style Sheets', Description: 'CSS' },
   { number: 3, title: 'JavaScript', Description: 'JS' }
 ];
+
+// if ()
