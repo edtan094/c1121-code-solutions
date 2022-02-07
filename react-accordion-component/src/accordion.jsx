@@ -19,6 +19,8 @@ export default class Accordion extends React.Component {
   }
 
   handleClick(event) {
+    console.log(event.target.id);
+    console.log(typeof event.target.id);
     this.showOrHideDescription(event);
   }
 
@@ -26,12 +28,19 @@ export default class Accordion extends React.Component {
     const topics = this.props.topics;
     const listItems = topics.map(topic => {
       return (
-        <div key={topic.number}>
-          <button onClick={this.handleClick} id={topic.number}>
+        this.state.open === topic.number
+          ? <div key={topic.number} onClick={this.handleClick} id={topic.number}>
+          <button>
             {topic.title}
           </button>
-          <div className={'closed' + ' borders description'}>{topic.Description}</div>
+          <div className="borders description">{topic.Description}</div>
         </div>
+          : <div key={topic.number} onClick={this.handleClick} id={topic.number}>
+            <button>
+              {topic.title}
+            </button>
+            <div className={'closed' + ' borders description'}>{topic.Description}</div>
+          </div>
       );
     });
     return (
