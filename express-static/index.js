@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const publicPath = path.join('/mnt/c/Users/etan0/repos/c1121-code-solutions/express-static', 'public');
+const publicPath = path.join('__dirname', 'public');
 console.log(publicPath);
 
 const staticPublic = express.static('public');
