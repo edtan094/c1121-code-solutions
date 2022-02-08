@@ -43,9 +43,9 @@ export default class App extends React.Component {
     const init = { method: 'POST', body: JSON.stringify(newTodo), headers: { 'Content-type': 'application/json' } };
     fetch('/api/todos', init)
       .then(res => res.json())
-      .then(list => {
+      .then(task => {
         const array = [];
-        array.push(list);
+        array.push(task);
 
         this.setState({ todos: this.state.todos.concat(array) });
       }
@@ -71,6 +71,35 @@ export default class App extends React.Component {
      * TIP: Be sure to SERIALIZE the updates in the body with JSON.stringify()
      * And specify the "Content-Type" header as "application/json"
      */
+    const init = { method: 'PATCH', body: JSON.stringify(todoId), headers: { 'Content-type': 'application.json' } };
+    const listOfTasks = this.state.todos;
+    const taskStatus = {};
+    for (let i = 0; i < listOfTasks.length; i++) {
+      if (todoId === listOfTasks[i].todoId) {
+        if (listOfTasks[i].isCompleted === true) {
+          taskStatus.isCompleted = false;
+        } else {
+          taskStatus.isCompleted = true;
+        }
+      }
+    }
+    init.body = taskStatus;
+    console.log(init.body);
+    // init.body = listOfTasks;
+    fetch(`/api/todos/${todoId}`, init)
+      .then(res => res.json())
+      .then(update => {
+        console.log(update);
+        for (let i = 0; i < listOfTasks.length; i++) {
+          if (todoId === listOfTasks[i].todoId) {
+            listOfTasks[i].isCompleted = update;
+            this.setState({ todos: listOfTasks });
+          }
+        }
+
+        this.setState({ todos: update });
+      })
+      .catch(error => console.error(error));
   }
 
   render() {
