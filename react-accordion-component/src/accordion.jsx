@@ -29,14 +29,14 @@ export default class Accordion extends React.Component {
     const listItems = topics.map(topic => {
       return (
         this.state.open === topic.number
-          ? <div key={topic.number} onClick={this.handleClick} id={topic.number}>
-          <button>
+          ? <div key={topic.number}>
+            <button onClick={this.handleClick} id={topic.number}>
             {topic.title}
           </button>
           <div className="borders description">{topic.Description}</div>
         </div>
-          : <div key={topic.number} onClick={this.handleClick} id={topic.number}>
-            <button>
+          : <div key={topic.number}>
+            <button onClick={this.handleClick} id={topic.number}>
               {topic.title}
             </button>
             <div className={'closed' + ' borders description'}>{topic.Description}</div>
