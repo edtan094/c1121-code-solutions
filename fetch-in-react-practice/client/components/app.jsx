@@ -87,12 +87,13 @@ export default class App extends React.Component {
     fetch(`/api/todos/${todoId}`, init)
       .then(res => res.json())
       .then(update => {
-        // console.log(update);
         for (let i = 0; i < listOfTasks.length; i++) {
           if (todoId === listOfTasks[i].todoId) {
-            listOfTasks.slice(i, i + 1);
-            listOfTasks[i].isCompleted = update;
-            this.setState({ todos: listOfTasks });
+            const updatedListOfTasks = listOfTasks.slice();
+            let updatedTask = listOfTasks.slice(i, i + 1);
+            updatedTask = update;
+            updatedListOfTasks[i] = updatedTask;
+            this.setState({ todos: updatedListOfTasks });
           }
         }
       })
