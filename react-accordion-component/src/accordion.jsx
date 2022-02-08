@@ -11,16 +11,14 @@ export default class Accordion extends React.Component {
   }
 
   showOrHideDescription(event) {
-    if (this.state.open === event.target.id) {
+    if (this.state.open === parseFloat(event.target.id)) {
       this.setState({ open: null });
     } else {
-      this.setState({ open: event.target.id });
+      this.setState({ open: parseFloat(event.target.id) });
     }
   }
 
   handleClick(event) {
-    console.log(event.target.id);
-    console.log(typeof event.target.id);
     this.showOrHideDescription(event);
   }
 
