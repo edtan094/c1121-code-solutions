@@ -5,40 +5,38 @@ export default class Carousel extends React.Component {
     super(prop);
     this.state = {
       image: pokemon[index].image,
-      circle: index
+      circle: index,
+      highlight: index
 
     };
     this.moveToTheLeft = this.moveToTheLeft.bind(this);
     this.moveToTheRight = this.moveToTheRight.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.highlightDot = this.highlightDot.bind(this);
+    this.resetInterval = this.resetInterval.bind(this);
   }
 
   moveToTheRight() {
     index++;
-    if (index > 4) {
+    if (index > pokemon.length - 1) {
       index = 0;
     }
     this.setState(
       { image: pokemon[index].image }
     );
-    this.highlightDot();
-    clearInterval(this.interval);
-    this.componentDidMount();
+    this.resetInterval();
 
   }
 
   moveToTheLeft() {
     index--;
     if (index < 0) {
-      index = 4;
+      index = pokemon.length - 1;
     }
     this.setState(
       { image: pokemon[index].image }
     );
-    this.highlightDot();
-    clearInterval(this.interval);
-    this.componentDidMount();
+    this.resetInterval();
   }
 
   handleClick(event) {
@@ -56,9 +54,7 @@ export default class Carousel extends React.Component {
           circle: index
         }
       );
-      this.highlightDot();
-      clearInterval(this.interval);
-      this.componentDidMount();
+      this.resetInterval();
     }
   }
 
@@ -73,6 +69,12 @@ export default class Carousel extends React.Component {
       }
     }
 
+  }
+
+  resetInterval() {
+    this.highlightDot();
+    clearInterval(this.interval);
+    this.componentDidMount();
   }
 
   componentDidMount() {
