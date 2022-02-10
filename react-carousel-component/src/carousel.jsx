@@ -59,7 +59,7 @@ export default class Carousel extends React.Component {
   }
 
   highlightDot() {
-    var $circleButtons = document.querySelectorAll('.circle-button');
+    const $circleButtons = document.querySelectorAll('.circle-button');
     for (let i = 0; i < $circleButtons.length; i++) {
       if (i === index) {
         $circleButtons[i].classList.replace('far', 'fas');
@@ -68,7 +68,6 @@ export default class Carousel extends React.Component {
         $circleButtons[i].classList.replace('fas', 'far');
       }
     }
-
   }
 
   resetInterval() {
