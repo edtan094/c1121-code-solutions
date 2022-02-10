@@ -5,7 +5,7 @@ function authorizationMiddleware(req, res, next) {
   /* your code here */
   const accessToken = req.get('X-Access-Token');
   if (!accessToken) {
-    res.status(401).json('authentication requred');
+    throw new ClientError(401, 'authentication required');
   }
   const payload = jwt.verify(accessToken, process.env.TOKEN_SECRET);
   req.user = payload;
