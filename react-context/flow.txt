@@ -1,0 +1,46 @@
+-Before the user even signs up, there are directed to a home page for signing in which is built by home.jsx
+-If there is not this.context.user then the page is redirected to the sign in page.  This is done on the Home.jsx
+and home.render() will return the redirect react element.  The redirect element will change the url to just a hashtag sign.
+-window.location.replace(url) replaced the url text in the browser
+-app.jsx will do a render() and also call renderPage() to bring the user to the sign in page by returning the auth react element from auth.jsx
+-componentDidMount() is also called immediately after render() and adds a eventlistner for a hashchange.  If there is a hashchange, the state route is
+updated
+
+
+User can sign up
+  -once the user hits submit, the handleSubmit() is called uses a fetch call to the server with json
+  -index.js will process the user sign up information
+  - if the user successfully provides a username and password,the password will be hashed by argon2 and will db.query and then create a 201 status
+    if not, the user will get an error 400 'username and password are required fields'
+  -after the user registers an account, they are brought back to the login/sign in page
+  -app.jsx will do a render() and also call renderPage() to bring the user to the sign in page
+  -alternatively, if you click sign up, the page will be re rendered and App will called renderPage()
+  and return the react element Auth with a sign up path
+
+User can sign in
+  -after the user has successfully signed up, they are again brough to the sign in home page.
+  -the default hash seems to be #sign-in before the user signs in
+  -once the user inputs their credentials and hits the submit button, handleSubmit() and handleChange() are called to send json
+  information to the server and update the state with the username.   The server at index.js will verify the logins and
+  check to see if a username and password is entered if not, they receive a 401 error invalid login.
+  It then also checks the database to see if there is a matching username, if not 401 error invalid login is given
+  -if a username matches, index.js will verify if input password hashed matches the hashed password in the database with argon2.verify()
+  -if the passwords match, the user will then receive a token with their payload with res.json()
+  that allows the do things an authorized signed in user can do
+
+User can stay signed in
+  -the user stays signed in with the payload and token attached from index.js through componentDidMount()
+  -the url is updated through the eventlistener in componentDidMount(). Then a conditional is checked to see if there is a token.  If there is
+  the token is decoded to see if it is legit.  if not, it is set to null and the value of the token is set to the user state.
+  -app.render() is called and renders the AppContext, Navbar, PageContainer and renderPage()
+  -app.renderPage() will return the Home react element since the path variable is ""
+  -Navbar returns the navbar elements we see on the page which has the home button and a signout button
+  - PageContainer returns the page container elements we see on the page
+  -if for whatever reason, the user types in some additional text after the #, renderPage() will return the not found react element
+
+User can sign out
+  - if the user hits the sign out button, the handleSignOut() is called in navbar.jsx
+  -handleSignOut() is called and removes the JWT from local storage.  It also sets the state to user: null
+  -App.render() is called and AppContext, Navbar, PageContainer are rendered on the page
+  - Navbar will show the the sign in and sign up button since the state user is now null
+  - PageContainer is rendered as normal
