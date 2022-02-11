@@ -4,42 +4,47 @@ export default class Carousel extends React.Component {
   constructor(prop) {
     super(prop);
     this.state = {
-      image: pokemon[index].image,
-      circle: index,
-      highlight: index
+      activeIndex: 0
 
     };
     this.moveToTheLeft = this.moveToTheLeft.bind(this);
     this.moveToTheRight = this.moveToTheRight.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.highlightDot = this.highlightDot.bind(this);
     this.resetInterval = this.resetInterval.bind(this);
   }
 
   moveToTheRight() {
-    index++;
-    if (index > pokemon.length - 1) {
-      index = 0;
+    if (this.state.activeIndex >= pokemons.length - 1) {
+      this.setState({
+        activeIndex: 0
+      });
+    } else {
+      this.setState(
+        {
+          activeIndex: this.state.activeIndex + 1
+        }
+      );
     }
-    this.setState(
-      { image: pokemon[index].image }
-    );
     this.resetInterval();
 
   }
 
   moveToTheLeft() {
-    index--;
-    if (index < 0) {
-      index = pokemon.length - 1;
+    if (this.state.activeIndex <= 0) {
+      this.setState({
+        activeIndex: pokemons.length - 1
+      });
+    } else {
+      this.setState(
+        {
+          activeIndex: this.state.activeIndex - 1
+        }
+      );
     }
-    this.setState(
-      { image: pokemon[index].image }
-    );
     this.resetInterval();
   }
 
-  handleClick(event) {
+  handleClick(event, index) {
     if (event.target.id === 'right-arrow') {
       this.moveToTheRight();
     }
@@ -47,31 +52,16 @@ export default class Carousel extends React.Component {
       this.moveToTheLeft();
     }
     if (event.target.className.includes('circle-button')) {
-      index = parseInt(event.target.id);
       this.setState(
         {
-          image: pokemon[index].image,
-          circle: index
+          activeIndex: index
         }
       );
       this.resetInterval();
     }
   }
 
-  highlightDot() {
-    const $circleButtons = document.querySelectorAll('.circle-button');
-    for (let i = 0; i < $circleButtons.length; i++) {
-      if (i === index) {
-        $circleButtons[i].classList.replace('far', 'fas');
-      }
-      if (i !== index) {
-        $circleButtons[i].classList.replace('fas', 'far');
-      }
-    }
-  }
-
   resetInterval() {
-    this.highlightDot();
     clearInterval(this.interval);
     this.componentDidMount();
   }
@@ -92,7 +82,7 @@ export default class Carousel extends React.Component {
             </div>
             <div className="column">
               <div className="row justify-center">
-                <img src={this.state.image}></img>
+                <img src={pokemons[this.state.activeIndex].image}></img>
               </div>
             </div>
             <div className="column-30">
@@ -102,22 +92,19 @@ export default class Carousel extends React.Component {
             </div>
           </div>
           <div className="row justify-center" id="all-of-the-circle-buttons">
-            <i onClick={this.handleClick} className="fas fa-circle padding-left-right circle-button" id="0"></i>
-            <i onClick={this.handleClick} className="far fa-circle padding-left-right circle-button" id="1"></i>
-            <i onClick={this.handleClick} className="far fa-circle padding-left-right circle-button" id="2"></i>
-            <i onClick={this.handleClick} className="far fa-circle padding-left-right circle-button" id="3"></i>
-            <i onClick={this.handleClick} className="far fa-circle padding-left-right circle-button" id="4"></i>
+            {pokemons.map((pokemon, index) => {
+              return <i onClick={event => this.handleClick(event, index)} key={index} className={this.state.activeIndex === index ? 'fas fa-circle padding-left-right circle-button' : 'far fa-circle padding-left-right circle-button'}></i>;
+            })}
           </div>
         </div>
       </div>
     );
   }
 }
-let index = 0;
-const pokemon = [
-  { number: 1, image: '../images/001.png' },
-  { number: 2, image: '../images/004.png' },
-  { number: 3, image: '../images/007.png' },
-  { number: 4, image: '../images/025.png' },
-  { number: 5, image: '../images/039.png' }
+const pokemons = [
+  { image: '../images/001.png' },
+  { image: '../images/004.png' },
+  { image: '../images/007.png' },
+  { image: '../images/025.png' },
+  { image: '../images/039.png' }
 ];
