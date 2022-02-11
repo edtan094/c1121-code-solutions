@@ -11,6 +11,7 @@ export default class Carousel extends React.Component {
     this.moveToTheRight = this.moveToTheRight.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.resetInterval = this.resetInterval.bind(this);
+    this.beginInterval = this.beginInterval.bind(this);
   }
 
   moveToTheRight() {
@@ -61,13 +62,17 @@ export default class Carousel extends React.Component {
     }
   }
 
+  beginInterval() {
+    this.interval = setInterval(this.moveToTheRight, 3000);
+  }
+
   resetInterval() {
     clearInterval(this.interval);
-    this.componentDidMount();
+    this.beginInterval();
   }
 
   componentDidMount() {
-    this.interval = setInterval(this.moveToTheRight, 3000);
+    this.beginInterval();
   }
 
   render() {
