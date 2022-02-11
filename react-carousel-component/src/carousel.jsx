@@ -15,7 +15,7 @@ export default class Carousel extends React.Component {
   }
 
   moveToTheRight() {
-    if (this.state.activeIndex >= pokemons.length - 1) {
+    if (this.state.activeIndex >= this.props.pokemons.length - 1) {
       this.setState({
         activeIndex: 0
       });
@@ -33,7 +33,7 @@ export default class Carousel extends React.Component {
   moveToTheLeft() {
     if (this.state.activeIndex <= 0) {
       this.setState({
-        activeIndex: pokemons.length - 1
+        activeIndex: this.props.pokemons.length - 1
       });
     } else {
       this.setState(
@@ -87,7 +87,7 @@ export default class Carousel extends React.Component {
             </div>
             <div className="column">
               <div className="row justify-center">
-                <img src={pokemons[this.state.activeIndex].image}></img>
+                <img src={this.props.pokemons[this.state.activeIndex].image}></img>
               </div>
             </div>
             <div className="column-30">
@@ -97,7 +97,7 @@ export default class Carousel extends React.Component {
             </div>
           </div>
           <div className="row justify-center" id="all-of-the-circle-buttons">
-            {pokemons.map((pokemon, index) => {
+            {this.props.pokemons.map((pokemon, index) => {
               return <i onClick={event => this.handleClick(event, index)} key={index} className={this.state.activeIndex === index ? 'fas fa-circle padding-left-right circle-button' : 'far fa-circle padding-left-right circle-button'}></i>;
             })}
           </div>
@@ -106,10 +106,3 @@ export default class Carousel extends React.Component {
     );
   }
 }
-const pokemons = [
-  { image: '../images/001.png' },
-  { image: '../images/004.png' },
-  { image: '../images/007.png' },
-  { image: '../images/025.png' },
-  { image: '../images/039.png' }
-];
