@@ -8,16 +8,10 @@ function takeNextSmallest(queue) {
       return item;
     }
     queue.enqueue(item);
-    let smallestItem;
-    for (let i = 0; queue.peek() !== item; i++) {
-      if (queue.peek() <= item) {
-        smallestItem = queue.dequeue();
-      } else {
-        const otherItems = queue.dequeue();
-        queue.enqueue(otherItems);
-      }
+    item = queue.dequeue();
+    for (let i = 0; item === queue.peek(); i++) {
+      queue.enqueue(item);
     }
-    return smallestItem; // gotta get the next smallest!!
   }
 }
 
