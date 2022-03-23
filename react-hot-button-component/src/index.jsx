@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CustomButton from './hot-button';
+import HotButton from './hot-button';
 
 ReactDOM.render(
-  <CustomButton />,
+  <HotButton />,
   document.querySelector('#root')
 );
