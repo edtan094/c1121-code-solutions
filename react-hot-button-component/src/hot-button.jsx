@@ -5,7 +5,7 @@ export default function HotButton(props) {
   return (
     <div>
       <p>Hello there! You click {count} times</p>
-      <ColorCounter counter={count} setCount={() => setCount(prevCount => prevCount + 1)}/>
+      <ColorCounter counter={count} setCount={() => setCount(count + 1)}/>
     </div>
   );
 }
