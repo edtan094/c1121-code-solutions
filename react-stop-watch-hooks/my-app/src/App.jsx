@@ -13,6 +13,11 @@ function App() {
       setTimer(null)
     }
   }
+  const handleReset = () => {
+    clearInterval(timer)
+    setTime(0)
+
+  }
 
   return (
     <>
@@ -20,7 +25,8 @@ function App() {
         <span>{time}</span>
       </div>
       <div className="row justify-center">
-        <button onClick={handleClick}>Click me!</button>
+        <button onClick={handleClick}>Timer</button>
+        <button onClick={handleReset}>Reset</button>
       </div>
     </>
   );
